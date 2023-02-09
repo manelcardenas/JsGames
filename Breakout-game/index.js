@@ -1,5 +1,6 @@
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.querySelector('#score')
+const startButton = document.querySelector('#start-button')
 let score = 0
 const blockWidth = 100
 const blockHeight = 20
@@ -9,6 +10,11 @@ const ballDiameter = 20
 let timerId
 let xDirection = 2
 let yDirection = 2
+
+//posar nivells
+//boton de start
+//missatgede you win millor
+
 
 const userStart = [230, 10]
 let currentPosition = userStart
@@ -88,7 +94,7 @@ function moveUser(e) {
     }
 }
 
-document.addEventListener('keydown', moveUser)
+//document.addEventListener('keydown', moveUser)
 
 const ball = document.createElement('div')
 ball.classList.add('ball')
@@ -102,7 +108,7 @@ function moveBall() {
     checkForCollisions()
 }
 
-timerId = setInterval(moveBall, 30)
+//timerId = setInterval(moveBall, 30)
 
 function checkForCollisions() {
     //check for block collisions
@@ -171,3 +177,10 @@ function changeDirection() {
         return
     }
 }
+
+
+startButton.addEventListener('click', () => {
+
+        timerId = setInterval(moveBall, 20)
+        document.addEventListener('keydown', moveUser)
+})

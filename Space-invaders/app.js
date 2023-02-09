@@ -1,5 +1,8 @@
 const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('.result')
+//punt verd mes grand, dardos mes petits
+//posar boton de start
+//fer nivells
 
 let currentShooterIndex = 202
 let width = 15

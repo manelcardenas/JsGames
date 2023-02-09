@@ -7,6 +7,11 @@ const logsRight = document.querySelectorAll('.log-right')
 const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
 
+//posar imatges reals
+//fer mes gran el grid
+//fer nivells
+//el boton que funcioni be
+
 let timerId
 let currentTime = 20
 let currentIndex = 76

@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //posar la graella
+    //cambiar lo de player 1 and 2 a colors
+    //fer mes gran
+    //poder millorar lo de you cant go there per posarho abaix de tot
     const squares = document.querySelectorAll('.grid div')
     const result = document.querySelector('#result')
     const displayCurrentPlayer = document.querySelector('#current-player')

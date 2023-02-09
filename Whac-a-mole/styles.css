@@ -1,11 +1,11 @@
-.grid{
+.grid {
     width: 606px;
     height: 606px;   
     display: flex;
     flex-wrap: wrap;
 }
 
-.square{
+.square {
     height: 200px;
     width: 200px;
     border: solid black 1px;
@@ -13,7 +13,17 @@
     border-color: black; */
 }
 
-.mole{
+.mole {
     background-image: url('mole.jpg') ;
+    background-size: cover;
+}
+
+.bang {
+    background-image: url('bang.jpg');
+    background-size: cover;
+}
+
+.cross {
+    background-image: url('cross.jpg');
     background-size: cover;
 }

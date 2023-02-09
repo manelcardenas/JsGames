@@ -10,14 +10,15 @@
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: blue;
+    background-color: lightseagreen;
 }
 
 .user {
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: purple;
+    background-color: lightcoral;
+    border-radius: 5px;
 }
 
 .ball {
@@ -25,5 +26,5 @@
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background-color: red;
+    background-color: lightslategrey;
 }

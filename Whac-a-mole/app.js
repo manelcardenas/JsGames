@@ -1,19 +1,26 @@
 const squares = document.querySelectorAll('.square')
-const molte = document.querySelector('.mole')
+const mole = document.querySelector('.mole')
+const bang = document.querySelector('.bang')
+const cross = document.querySelector('.cross')
 const timeLeft = document.querySelector('#time-left')
 const socre = document.querySelector('#score')
+const startButton = document.querySelector('#start-button')
+
+
 
 let result = 0
 let hitPosition
 let currentTime = 60
-let timeId = null
+let randomSquare
+let timerId
+let countMole
 
-function randomSquare() {
+function randomSquares() {
     squares.forEach(square => {
         square.classList.remove('mole')
     })
 
-    let randomSquare = squares[Math.floor(Math.random() * 9)]
+    randomSquare = squares[Math.floor(Math.random() * 9)]
     randomSquare.classList.add('mole')
 
     hitPosition = randomSquare.id
@@ -22,29 +29,43 @@ function randomSquare() {
 squares.forEach(square => {
     square.addEventListener('mousedown', () => {
         if(square.id == hitPosition){
+            randomSquare.classList.add('bang')
             result++
             socre.textContent = result
             hitPosition = null
+            setTimeout( () => randomSquare.classList.remove('bang'), 200)
+        } else if(square.id != hitPosition){
+            square.classList.add('cross')
+            setTimeout( () => square.classList.remove('cross'), 200)
+            currentTime = currentTime - 2
         }
     })
 })
 
 function moveMole() {
-    timeId = setInterval(randomSquare, 500)
+    countMole = setInterval(randomSquares, 1000)
 }
 
 
-moveMole()
 
 function countDown() {
     currentTime--
     timeLeft.textContent = currentTime
+    
 
-    if (currentTime == 0) {
-        clearInterval(countDownTimeId)
-        clearInterval(timeId)
+    if (currentTime <= 0) {
+        clearInterval(timerId)
+        clearInterval(countMole)
+        //document.removeEventListener('keyup', moveFrog)
         alert('GAME OVER! Your final score is '+ result)
     }
 }
 
-let countDownTimeId = setInterval(countDown, 1000)
+
+startButton.addEventListener('click', () => {
+    
+        timerId = setInterval(countDown, 1000)
+        moveMole()
+        //document.addEventListener('keyup', moveFrog)
+    
+})
