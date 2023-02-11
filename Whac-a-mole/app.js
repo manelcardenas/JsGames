@@ -4,13 +4,13 @@ const bang = document.querySelector('.bang')
 const cross = document.querySelector('.cross')
 const timeLeft = document.querySelector('#time-left')
 const socre = document.querySelector('#score')
-const startButton = document.querySelector('#start-button')
+const startButton = document.querySelector('.start-button')
 
 
 
 let result = 0
 let hitPosition
-let currentTime = 60
+let currentTime = 40
 let randomSquare
 let timerId
 let countMole
@@ -33,12 +33,12 @@ squares.forEach(square => {
             result++
             socre.textContent = result
             hitPosition = null
-            setTimeout( () => randomSquare.classList.remove('bang'), 200)
         } else if(square.id != hitPosition){
             square.classList.add('cross')
             setTimeout( () => square.classList.remove('cross'), 200)
             currentTime = currentTime - 2
         }
+        setTimeout( () => randomSquare.classList.remove('bang'), 250)
     })
 })
 
@@ -66,6 +66,5 @@ startButton.addEventListener('click', () => {
     
         timerId = setInterval(countDown, 1000)
         moveMole()
-        //document.addEventListener('keyup', moveFrog)
     
 })

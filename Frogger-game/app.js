@@ -8,7 +8,6 @@ const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
 
 //posar imatges reals
-//fer mes gran el grid
 //fer nivells
 //el boton que funcioni be
 
@@ -122,17 +121,17 @@ function moveCarLeft(carLeft) {
 
 function moveCarRight(carRight) {
     switch(true) {
-        case carRight.classList.contains('c1'):
-            carRight.classList.remove('c1')
-            carRight.classList.add('c3')
+        case carRight.classList.contains('d1'):
+            carRight.classList.remove('d1')
+            carRight.classList.add('d3')
             break
-        case carRight.classList.contains('c2'):
-            carRight.classList.remove('c2')
-            carRight.classList.add('c1')
+        case carRight.classList.contains('d2'):
+            carRight.classList.remove('d2')
+            carRight.classList.add('d1')
             break
-        case carRight.classList.contains('c3'):
-            carRight.classList.remove('c3')
-            carRight.classList.add('c2')
+        case carRight.classList.contains('d3'):
+            carRight.classList.remove('d3')
+            carRight.classList.add('d2')
             break
     }
 }
@@ -140,6 +139,7 @@ function moveCarRight(carRight) {
 function lose() {
     if(
         squares[currentIndex].classList.contains('c1') ||
+        squares[currentIndex].classList.contains('d1') ||
         squares[currentIndex].classList.contains('l4') ||
         squares[currentIndex].classList.contains('l5') ||
         currentTime <= 0

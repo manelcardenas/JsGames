@@ -27,3 +27,35 @@
     background-image: url('cross.jpg');
     background-size: cover;
 }
+
+.start-button {
+    background-color:blue;
+    color: white;
+    border:none; 
+    border-radius:10px; 
+    padding: 15px;
+    min-height:30px; 
+    min-width: 100px;
+}
+
+.start-button:hover {
+    background-color: lightblue;
+    transition: 0.7s;
+} 
+
+.start-button:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px orchid;
+}
+
+.start-button:active {
+    background-color: darkblue;
+}
+
+h1 {
+    font-family: fantasy;
+    color: burlywood;
+    font-size: 50px;
+    -webkit-text-stroke: 2px black;
+}

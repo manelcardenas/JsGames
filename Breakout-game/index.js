@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.querySelector('#score')
-const startButton = document.querySelector('#start-button')
+//const startButton = document.querySelector('#start-button')
 let score = 0
 const blockWidth = 100
 const blockHeight = 20
@@ -128,7 +128,7 @@ function checkForCollisions() {
 
             //check for win
             if(blocks.length === 0) {
-                scoreDisplay.innerHTML = 'YOU WIN'
+                alert('YOU WIN!')
                 clearInterval(timerId)
                 document.removeEventListener('keydown', moveUser)
             }
@@ -154,7 +154,7 @@ function checkForCollisions() {
     //game over
     if(ballCurrentPosition[1] <= 0) {
         clearInterval(timerId)
-        scoreDisplay.innerHTML = 'You lose'
+        alert('You lose!')
         document.removeEventListener('keydown', moveUser)
     }
 }
@@ -179,8 +179,19 @@ function changeDirection() {
 }
 
 
-startButton.addEventListener('click', () => {
+function startGame(e) {
+    if(e.key == ' ') {
+        timerId = setInterval(moveBall, 20)
+        document.addEventListener('keydown', moveUser)
+        document.removeEventListener('keyup', startGame)
+    }
+
+}
+
+document.addEventListener('keyup', startGame)
+
+/* startButton.addEventListener('click', () => {
 
         timerId = setInterval(moveBall, 20)
         document.addEventListener('keydown', moveUser)
-})
+}) */

@@ -48,13 +48,9 @@ const cardArray = [
         img:'images/pizza.png',
     }
 ]
-//si fallas perds temps
 //posar contador y start button
-
 //si fas un match que surti en verd i si falles ....
-
-cardArray.sort(() => 0.5 - Math.random())
-
+//el missatge de win que sigui alert
 
 const resultDisplay = document.querySelector('#result')
 const scoreDisplay = document.querySelector('#score')
@@ -63,10 +59,17 @@ const attempsLeftDisplay = document.querySelector('#attemps')
 let gridDisplay = document.querySelector('#grid')
 let card
 let attempsId
-let currentattemps = 10
+let currentattemps = 8
 let cardChosen = []
 let cardsChosenIds = []
 let cardsWon = []
+
+function partida () {
+    cardArray.sort(() => 0.5 - Math.random())
+    createBoard()
+}
+
+cardArray.sort(() => 0.5 - Math.random())
 
 function createBoard() {
     for(let i=0;i<cardArray.length;i++){
@@ -78,7 +81,7 @@ function createBoard() {
     }
 }
 
-createBoard()
+partida()
 
 function checkMatch() {
     const cards = document.querySelectorAll('img')

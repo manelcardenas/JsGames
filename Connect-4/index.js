@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //posar la graella
-    //cambiar lo de player 1 and 2 a colors
-    //fer mes gran
-    //poder millorar lo de you cant go there per posarho abaix de tot
+ //stop listening
     const squares = document.querySelectorAll('.grid div')
     const result = document.querySelector('#result')
     const displayCurrentPlayer = document.querySelector('#current-player')
@@ -93,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sq3.classList.contains('player-one') &&
                 sq4.classList.contains('player-one')
             ){
-                result.innerHTML = 'Player One Wins!'
+                result.innerHTML = 'Red player Wins!'
             }
             if(
                 sq1.classList.contains('player-two') && 
@@ -101,26 +98,76 @@ document.addEventListener('DOMContentLoaded', () => {
                 sq3.classList.contains('player-two') &&
                 sq4.classList.contains('player-two')
             ){
-                result.innerHTML = 'Player Two Wins!'
+                result.innerHTML = 'Blue player Wins!'
             }
         }
     }
 
     for(let i = 0; i < squares.length; i++) {
         squares[i].onclick = () => {
-            if(squares[i + 7].classList.contains('taken') && !squares[i].classList.contains('taken')) {
-                if(currentPlayer == 1) {
+            if(!squares[i].classList.contains('taken')) {
+                if( i <= 7 && !squares[i+35].classList.contains('taken') && currentPlayer == 1){
+                    squares[i+35].classList.add('taken')
+                    squares[i+35].classList.add('player-one')
+                    currentPlayer = 2
+                    displayCurrentPlayer.innerHTML = 'Blue player'
+                }else if(i <= 13 && !squares[i+28].classList.contains('taken') && currentPlayer == 1) {
+                    squares[i+28].classList.add('taken')
+                    squares[i+28].classList.add('player-one')
+                    currentPlayer = 2
+                    displayCurrentPlayer.innerHTML = 'Blue player'
+                }else if(i <= 20 && !squares[i+21].classList.contains('taken') && currentPlayer == 1) {
+                    squares[i+21].classList.add('taken')
+                    squares[i+21].classList.add('player-one')
+                    currentPlayer = 2
+                    displayCurrentPlayer.innerHTML = 'Blue player' 
+                }else if(i <= 27 && !squares[i+14].classList.contains('taken') && currentPlayer == 1) {
+                    squares[i+14].classList.add('taken')
+                    squares[i+14].classList.add('player-one')
+                    currentPlayer = 2
+                    displayCurrentPlayer.innerHTML = 'Blue player'
+                }else if(i <= 34 && !squares[i+7].classList.contains('taken') && currentPlayer == 1) {
+                    squares[i+7].classList.add('taken')
+                    squares[i+7].classList.add('player-one')
+                    currentPlayer = 2
+                    displayCurrentPlayer.innerHTML = 'Blue player'
+                }else if(currentPlayer == 1) {
                     squares[i].classList.add('taken')
                     squares[i].classList.add('player-one')
                     currentPlayer = 2
-                    displayCurrentPlayer.innerHTML = currentPlayer
-                } else if(currentPlayer == 2) {
+                    displayCurrentPlayer.innerHTML = 'Blue player'
+                } else if( i <= 7 && !squares[i+35].classList.contains('taken') && currentPlayer == 2){
+                    squares[i+35].classList.add('taken')
+                    squares[i+35].classList.add('player-two')
+                    currentPlayer = 1
+                    displayCurrentPlayer.innerHTML = 'Red player'
+                }else if(i <= 13 && !squares[i+28].classList.contains('taken') && currentPlayer == 2) {
+                    squares[i+28].classList.add('taken')
+                    squares[i+28].classList.add('player-two')
+                    currentPlayer = 1
+                    displayCurrentPlayer.innerHTML = 'Red player'
+                }else if(i <= 20 && !squares[i+21].classList.contains('taken') && currentPlayer == 2) {
+                    squares[i+21].classList.add('taken')
+                    squares[i+21].classList.add('player-two')
+                    currentPlayer = 1
+                    displayCurrentPlayer.innerHTML = 'Red player' 
+                }else if(i <= 27 && !squares[i+14].classList.contains('taken') && currentPlayer == 2) {
+                    squares[i+14].classList.add('taken')
+                    squares[i+14].classList.add('player-two')
+                    currentPlayer = 1
+                    displayCurrentPlayer.innerHTML = 'Red player'
+                }else if(i <= 34 && !squares[i+7].classList.contains('taken') && currentPlayer == 2) {
+                    squares[i+7].classList.add('taken')
+                    squares[i+7].classList.add('player-two')
+                    currentPlayer = 1
+                    displayCurrentPlayer.innerHTML = 'Red player'
+                }else if(currentPlayer == 1) {
                     squares[i].classList.add('taken')
                     squares[i].classList.add('player-two')
                     currentPlayer = 1
-                    displayCurrentPlayer.innerHTML = currentPlayer
+                    displayCurrentPlayer.innerHTML = 'Red player'
                 } 
-            } else alert("can't go here")
+            } else alert("This square is already taken")
             checkboard()
         }
     }
