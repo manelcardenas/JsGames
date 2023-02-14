@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     let currentPlayer = 1
-
+    // poder conservar la cuadricula
     function checkboard() {
         for(let y = 0; y < winningArrays.length; y++) {
             const sq1 = squares[winningArrays[y][0]]

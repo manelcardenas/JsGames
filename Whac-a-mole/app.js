@@ -6,7 +6,7 @@ const timeLeft = document.querySelector('#time-left')
 const socre = document.querySelector('#score')
 const startButton = document.querySelector('.start-button')
 
-
+// falla el bang, s'ha de fer el remove d'alguna altre manera
 
 let result = 0
 let hitPosition

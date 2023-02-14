@@ -15,9 +15,25 @@
 .player-one {
     background-color: red;
     border-radius: 40px;
+    border: solid black 1px; 
 }
 
 .player-two {
     background-color: blue;
     border-radius: 40px;
+    border: solid black 1px; 
+}
+
+h1 {
+    font-family: 'Retro New Version', sans-serif;
+    color: lightslategray;
+    font-size: 45px;
+    -webkit-text-stroke: 1px black;
+}
+
+
+h3 {
+    font-family: 'Retro New Version', sans-serif;
+    color:lightsteelblue;
+    -webkit-text-stroke: 1px black;
 }

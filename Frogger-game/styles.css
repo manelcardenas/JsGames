@@ -1,28 +1,42 @@
 .grid {
     border: 1px solid black;
-    height: 720px;
-    width: 720px;
+    height: 702px;
+    width: 702px;
     display: flex;
     flex-wrap: wrap;
-    background-color: antiquewhite;
 }
 
 .grid div {
-    height: 80px;
-    width: 80px;
+    height: 78px;
+    width: 78px;
+}
+
+h1 {
+    font-family: 'Retro New Version', sans-serif;
+    color: lightgreen;
+    font-size: 45px;
+    -webkit-text-stroke: 1px black;
+}
+
+
+h3 {
+    font-family: 'Retro New Version', sans-serif;
+    color:lightgreen;
+    -webkit-text-stroke: 1px black;
 }
 
 .ending-block {
-    background-color: red;
+    background-color: lightcoral;
 }
 
 .starting-block {
-    background-color: blue;
+    background-color: lightgreen;
 }
 
 .l1, .l2, .l3 {
     background-image: url('wood.jpg');
     background-size: cover;
+    background-color: rgb(185, 100, 31)
 }
 
 .l4, .l5 {
@@ -31,27 +45,53 @@
 }
 
 .c1 {
-    background-image: url('carTwo.jpg');
+    background-image: url('carTwo.png');
     background-size: cover;
+    mix-blend-mode: multiply;
+    background-color: gray;
 }
 
 .c2, .c3 {
-    background-image: url('highway.jpg');
-    background-size: cover;
+    background-color: grey;
 }
 
 .d1 {
-    background-image: url('car.jpg');
+    background-image: url('car.png');
+    background-position: center;
     background-size: cover;
+    mix-blend-mode: multiply;
+    background-color: gray;
 }
 
 .d2, .d3 {
-    background-image: url('highway.jpg');
-    background-size: cover;
+    background-color: grey;
 }
 
 
 .frog {
-    background-image: url('frog.jpg');
+    background-image: url('frog.png');
+    background-position: center;
     background-size: cover;
+    mix-blend-mode: multiply;
+}
+
+.frog-left {
+    background-image: url('frog-left.png');
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: multiply;
+}
+
+.frog-right {
+    background-image: url('frog-right.png');
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: multiply;
+}
+
+.frog-back {
+    background-image: url('frog-back.png');
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: multiply;
 }

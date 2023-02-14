@@ -1,15 +1,13 @@
 const timeLeftDisplay = document.querySelector('#time-left')
 const resultDisplay = document.querySelector('#result')
-const startPauseButton = document.querySelector('#start-pause-button')
+const startPauseButton = document.querySelector('.start-button')
 const squares = document.querySelectorAll('.grid div')
 const logsLeft = document.querySelectorAll('.log-left')
 const logsRight = document.querySelectorAll('.log-right')
 const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
 
-//posar imatges reals
 //fer nivells
-//el boton que funcioni be
 
 let timerId
 let currentTime = 20
@@ -21,21 +19,40 @@ console.log(squares)
 
 function moveFrog(e) {
     squares[currentIndex].classList.remove('frog')
+    squares[currentIndex].classList.remove('frog-left')
+    squares[currentIndex].classList.remove('frog-right')
+    squares[currentIndex].classList.remove('frog-back')
     switch(e.key) {
         case 'ArrowLeft' :
-            if(currentIndex % width !== 0) currentIndex -= 1
+            if(currentIndex % width !== 0){
+                currentIndex -= 1
+                squares[currentIndex].classList.add('frog-left')
+            }
+            else squares[currentIndex].classList.add('frog-left')
             break
         case 'ArrowRight' :
-            if(currentIndex % width < width - 1) currentIndex += 1
+            if(currentIndex % width < width - 1) {
+                currentIndex += 1
+                squares[currentIndex].classList.add('frog-right')
+            }
+            else squares[currentIndex].classList.add('frog-right')
             break
         case 'ArrowUp' :
-            if(currentIndex - width >= 0) currentIndex -= width
+            if(currentIndex - width >= 0) {
+                currentIndex -= width
+                squares[currentIndex].classList.add('frog')
+            }
+            else squares[currentIndex].classList.add('frog')
             break
         case 'ArrowDown' :
-            if(currentIndex + width < width * width) currentIndex += width
+            if(currentIndex + width < width * width) {
+                currentIndex += width
+                squares[currentIndex].classList.add('frog-back')
+            }
+            else squares[currentIndex].classList.add('frog-back')
             break
     }
-    squares[currentIndex].classList.add('frog')
+    
 }
 
 function autoMoveElements() {
@@ -144,7 +161,7 @@ function lose() {
         squares[currentIndex].classList.contains('l5') ||
         currentTime <= 0
     ) {
-        resultDisplay.textContent = 'You lose'
+        resultDisplay.textContent = 'YOU LOSE'
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
         squares[currentIndex].classList.remove('frog')
@@ -154,23 +171,36 @@ function lose() {
 
 function win() {
     if(squares[currentIndex].classList.contains('ending-block')){
-        resultDisplay.textContent = 'You win'
+        resultDisplay.textContent = 'YOU WIN!'
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
         document.removeEventListener('keyup', moveFrog)
     }
 }
 
-startPauseButton.addEventListener('click', () => {
-    if(timerId) {
-        clearInterval(timerId)
-        clearInterval(outcomeTimerId)
-        outcomeTimerId = null
-        timerId = null
-        document.removeEventListener('keyup', moveFrog)
-    } else {
+
+function startGame(e) {
+    if(e.key == 'ArrowUp') {
         timerId = setInterval(autoMoveElements, 1000)
         outcomeTimerId = setInterval(checkOutcomes, 50)
         document.addEventListener('keyup', moveFrog)
+        document.removeEventListener('keyup', startGame)
     }
-})
+
+}
+
+document.addEventListener('keyup', startGame)
+
+// startPauseButton.addEventListener('click', () => {
+//     if(timerId) {
+//         clearInterval(timerId)
+//         clearInterval(outcomeTimerId)
+//         outcomeTimerId = null
+//         timerId = null
+//         document.removeEventListener('keyup', moveFrog)
+//     } else {
+//         timerId = setInterval(autoMoveElements, 1000)
+//         outcomeTimerId = setInterval(checkOutcomes, 50)
+//         document.addEventListener('keyup', moveFrog)
+//     }
+// })

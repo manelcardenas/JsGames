@@ -4,6 +4,7 @@
     height: 300px;
     border: solid black 1px;
     margin-top: 80px;
+    background-color: palegreen;
 }
 
 .block {
@@ -28,7 +29,14 @@
     border-radius: 10px;
     background-color: lightslategrey;
 }
-p {
+
+h1 {
     font-family: fantasy;
-    color: burlywood;
+    color: lightseagreen;
+    font-size: 50px;
+}
+
+h2 {
+    font-family: fantasy;
+    color:lightseagreen;
 }

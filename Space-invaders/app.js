@@ -1,11 +1,13 @@
 const grid = document.querySelector('.grid')
+const text = document.querySelector(".text")
 const resultDisplay = document.querySelector('.result')
+const boomAudio = new Audio('boom.wav')
 const allienInvaders = [
     0,1,2,3,4,5,6,7,8,9,
     15,16,17,18,19,20,21,22,23,24,
     30,31,32,33,34,35,36,37,38,39
 ]
-//quitar fondo al proyectil
+
 //posar boton de start
 //fer nivells
 
@@ -17,7 +19,7 @@ let goingRight = true
 let aliensRemoved = []
 let results = allienInvaders.length
 
-for(let i = 0; i < 255; i++) {
+for(let i = 0; i < 225; i++) {
     const square = document.createElement('div')
     grid.appendChild(square)
 }
@@ -33,7 +35,7 @@ function draw() {
     }
 }
 
-draw()
+//draw()
 
 function remove() {
     for(let i=0; i < allienInvaders.length; i++){
@@ -56,7 +58,7 @@ function moveShooter(e) {
     squares[currentShooterIndex].classList.add('shooter')
 }
 
-document.addEventListener('keydown', moveShooter)
+//document.addEventListener('keydown', moveShooter)
 
 function moveInvaders() {
     const leftEdge = allienInvaders[0] % width === 0
@@ -110,21 +112,26 @@ function moveInvaders() {
     }
 }
 
-invadersId = setInterval(moveInvaders, 800)
+//invadersId = setInterval(moveInvaders, 800)
 
 function shoot(e) {
     let laserId
     let currentLaserIndex = currentShooterIndex
     
     function moveLaser() {
-        squares[currentLaserIndex].classList.remove('laser')
-        currentLaserIndex -= width
-        squares[currentLaserIndex].classList.add('laser')
+
+        if(currentLaserIndex >= 15){
+            squares[currentLaserIndex].classList.remove('laser')
+            currentLaserIndex -= width
+            squares[currentLaserIndex].classList.add('laser')
+        }
+        else squares[currentLaserIndex].classList.remove('laser')
 
         if(squares[currentLaserIndex].classList.contains('invader')) {
             squares[currentLaserIndex].classList.remove('laser')
             squares[currentLaserIndex].classList.remove('invader')
             squares[currentLaserIndex].classList.add('boom')
+            boomAudio.play()
 
             setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 300)
             clearInterval(laserId)
@@ -142,4 +149,20 @@ function shoot(e) {
     }
 }
 
-document.addEventListener('keydown', shoot)
+//document.addEventListener('keydown', shoot)
+
+
+function startGame(e) {
+    draw()
+    if(e.key) { 
+        grid.classList.add("active")
+        text.classList.add("inactive")
+        invadersId = setInterval(moveInvaders, 800)
+        document.addEventListener('keydown', shoot)
+        document.addEventListener('keydown', moveShooter)
+        document.removeEventListener('keyup', startGame)
+    }
+
+}
+
+document.addEventListener('keyup', startGame)

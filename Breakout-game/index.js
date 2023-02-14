@@ -12,8 +12,7 @@ let xDirection = 2
 let yDirection = 2
 
 //posar nivells
-//boton de start
-//missatgede you win millor
+
 
 
 const userStart = [230, 10]
@@ -190,8 +189,3 @@ function startGame(e) {
 
 document.addEventListener('keyup', startGame)
 
-/* startButton.addEventListener('click', () => {
-
-        timerId = setInterval(moveBall, 20)
-        document.addEventListener('keydown', moveUser)
-}) */
