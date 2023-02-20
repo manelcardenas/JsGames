@@ -68,6 +68,11 @@ body {
     background-size: cover;
 } 
 
+.alliens {
+    background-image: url('alliens.png');
+    background-size: cover;
+} 
+
 .shooter {
     background-image: url('nave.png');
     background-size: cover;
