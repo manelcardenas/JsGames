@@ -6,13 +6,16 @@
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-
     <h1><center>Memory Game</center></h1>
-    <h2><center>Score: <span id="result"></span></center></h3>
-    <h2><center>Number of attemps: <span id ="attemps">8</span></center></h3>
-
+    <h2 style="text-align: center;">
+        Score: <span id="result"></span>
+        <span style="margin-left: 20px;"></span> <!-- Adjust the margin value as per your desired spacing -->
+        Attempts: <span id="attempts">8</span>
+      </h2>
+      
     <center><div id="grid"></div></center>
-    <h3><center><div id="score"></div></center></h3>
+
+    <h3><center><span id="score"></span></center></h3>
 
     <script src="app.js"></script>
 </body>

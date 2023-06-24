@@ -1,28 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 .grid {
-    border: 1px solid;
-    height: 492px;  
-    width: 574px;
+    border: 1px solid; 
+    height: 482px;  
+    width: 562px;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box; /* Add this line */
 }
 
 .grid div {
     height: 80px;
     width: 80px;
     border: solid black 1px; 
+    box-sizing: border-box; /* Add this line */
 }
 
 .player-one {
     background-color: red;
     border-radius: 40px;
     border: solid black 1px; 
+    box-sizing: content-box; /* Add this line */
 }
 
 .player-two {
     background-color: blue;
     border-radius: 40px;
     border: solid black 1px; 
+    box-sizing: content-box; /* Add this line */
 }
+
 
 h1 {
     font-family: 'Retro New Version', sans-serif;

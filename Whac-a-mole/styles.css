@@ -29,7 +29,7 @@
 }
 
 .start-button {
-    background-color:blue;
+    background-color:burlywood;
     color: white;
     border:none; 
     border-radius:10px; 
@@ -50,7 +50,7 @@
 }
 
 .start-button:active {
-    background-color: darkblue;
+    background-color: rgb(219, 164, 92);
 }
 
 h1 {
